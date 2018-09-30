@@ -184,7 +184,14 @@ public class MainWebApplication  extends WebApplication{
 //
 //		});
 
-	
+	/**git status
+	 * git init
+	 * git add .
+	 * git commit -a -m ""
+	 * git remote add origin git@github.com:User/UserRepo.git
+	 * git remote set-url origin git@github.com:User/UserRepo.git
+	 * git push -u origin master 
+	 * */
 	
 }
 
