@@ -9,9 +9,21 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ketli.app.model.*;
+import com.ketli.app.DAO.LoginDao;
+import com.ketli.app.util.HibernateUtil;
 
 public class Login  extends WebPage{
 
+	@Autowired
+	Session session;
+	
+//	@Autowired
+//	Login login;
+	
 	public Login() {
      
 		
@@ -33,11 +45,17 @@ public class Login  extends WebPage{
 				final String usernameValue = username.getModelObject();
 				final String pswd=password.getModelObject();
 				PageParameters pageParameters = new PageParameters();
-				pageParameters.add("username", usernameValue);
-				pageParameters.add("password", pswd);
 				
-				setResponsePage(HelloWorld.class,pageParameters);
+			//	Login loginrep=(Login) session.byId(Login.class);
+				session =HibernateUtil.getSession();
+				if(LoginDao.findByName(usernameValue, pswd)!=null) {
+					pageParameters.add("username", usernameValue);
+					pageParameters.add("password", pswd);
+					
+					setResponsePage(HelloWorld.class,pageParameters);
 
+				}
+				
 			}
 
 		};

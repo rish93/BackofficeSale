@@ -1,5 +1,6 @@
 package com.ketli.app.util;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Iterator;
@@ -12,14 +13,17 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import com.fasterxml.classmate.AnnotationConfiguration;
 import com.ketli.app.model.Login;
 
 
+@Repository
 public class HibernateUtil {
 	private static Configuration configuration;
 	private static SessionFactory sessionFactory = null;
+	private static Session session;
 	private static Logger logger = LoggerFactory.getLogger(HibernateUtil.class);
 
 
@@ -29,7 +33,34 @@ public class HibernateUtil {
 	 * Wrapper Method to get Hibernate Session
 	 * 
 	 * @return
+	 * @throws IOException 
 	 */
+	
+	public static SessionFactory getSessionFactory() throws IOException
+	{
+		Configuration cfg = new Configuration();
+		Properties p = new Properties();
+		//load properties file
+		p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("application.properties"));
+		cfg.setProperties(p);
+		// build session factory
+		cfg.addAnnotatedClass(Login.class);
+		SessionFactory factory = cfg.buildSessionFactory();
+		sessionFactory=factory;
+		return factory;
+	}
+	
+	
+	public static Session getSession() {
+		
+		session=sessionFactory.openSession();
+		return session;
+	}
+	
+	
+	
+	
+	
 	public static Session getHibernateSession() {
 		Session session = getHibernateSessionNoSecurity();
 		//Tenant Filter requires an Active Transaction
@@ -144,14 +175,14 @@ public class HibernateUtil {
 	 * The only other method that can be called on HibernateUtil after this one
 	 * is rebuildSessionFactory(Configuration).
 	 */
-	public static void shutdown() {
-		logger.debug("Shutting down Hibernate");
-		// Close caches and connection pools
-		getSessionFactory().close();
-
-		// Clear static variables
-		sessionFactory = null;
-	}
+//	public static void shutdown() {
+//		logger.debug("Shutting down Hibernate");
+//		// Close caches and connection pools
+//		getSessionFactory().close();
+//
+//		// Clear static variables
+//		sessionFactory = null;
+//	}
 
 	/**
 	 * Returns the Hibernate configuration that was used to build the
@@ -169,12 +200,12 @@ public class HibernateUtil {
 	 * 
 	 * @return SessionFactory
 	 */
-	public static SessionFactory getSessionFactory() {
-		if (sessionFactory == null) {
-			buildSessionFactory(configuration);
-		}
-		return sessionFactory;
-	}
+//	public static SessionFactory getSessionFactory() {
+//		if (sessionFactory == null) {
+//			buildSessionFactory(configuration);
+//		}
+//		return sessionFactory;
+//	}
 
 	public static void close(ResultSet rs) {
 		if (rs != null) {

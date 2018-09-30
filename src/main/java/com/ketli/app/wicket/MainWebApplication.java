@@ -11,6 +11,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
+
 
 //import com.ketli.app.model.Login;
 import com.ketli.app.util.HibernateUtil;
@@ -18,6 +20,8 @@ import com.ketli.app.util.HibernateUtil;
 
 public class MainWebApplication  extends WebApplication{
 
+	SessionFactory factory;
+	
 	 public MainWebApplication() {
 	    }
 	
@@ -27,17 +31,12 @@ public class MainWebApplication  extends WebApplication{
 			super.init();
 
 			try {
-				Configuration cfg = new Configuration();
-				Properties p = new Properties();
-				//load properties file
-				p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("application.properties"));
-				cfg.setProperties(p);
-				// build session factory
-				cfg.addAnnotatedClass(Login.class);
-				SessionFactory factory = cfg.buildSessionFactory();
+				
+				SessionFactory factory = HibernateUtil.getSessionFactory();
 				// get session
 				Session session = factory.openSession();
 				System.out.println("begin session "+session.isConnected());
+				addComponentInstantiationListener(new SpringComponentInjector(this));
 				// close session
 				
 //				Login l = new Login();
@@ -102,6 +101,11 @@ public class MainWebApplication  extends WebApplication{
 
 	 
 	 
+	private void addComponentInstantiationListener(SpringComponentInjector springComponentInjector) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@Override
 	public Class getHomePage() {
 		// TODO Auto-generated method stub
