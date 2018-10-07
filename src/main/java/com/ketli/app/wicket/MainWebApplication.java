@@ -11,20 +11,26 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 
-
+import com.ketli.app.DAO.LoginDao;
 //import com.ketli.app.model.Login;
 import com.ketli.app.util.HibernateUtil;
 
-
 public class MainWebApplication  extends WebApplication{
 
-	SessionFactory factory;
+	//SessionFactory factory;
+	
 	
 	 public MainWebApplication() {
 	    }
+	 @SpringBean
+	 private LoginDao dao;
 	
+	 @SpringBean
+	public SessionFactory factory;
+	 
 	 @Override
 		public void init() {
 
@@ -32,11 +38,13 @@ public class MainWebApplication  extends WebApplication{
 
 			try {
 				
-				SessionFactory factory = HibernateUtil.getSessionFactory();
+				 factory = HibernateUtil.getSessionFactory();
 				// get session
-				Session session = factory.openSession();
-				System.out.println("begin session "+session.isConnected());
-				addComponentInstantiationListener(new SpringComponentInjector(this));
+				//Session session = factory.openSession();
+				//System.out.println("begin session "+session.isConnected());
+				
+				 
+				 addComponentInstantiationListener(new SpringComponentInjector(this));
 				// close session
 				
 //				Login l = new Login();

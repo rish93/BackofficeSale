@@ -13,6 +13,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.fasterxml.classmate.AnnotationConfiguration;
@@ -22,11 +23,17 @@ import com.ketli.app.model.Login;
 @Repository
 public class HibernateUtil {
 	private static Configuration configuration;
-	private static SessionFactory sessionFactory = null;
+
+	@Autowired
+	private static SessionFactory sessionFactory ;
+	
+	@Autowired
 	private static Session session;
 	private static Logger logger = LoggerFactory.getLogger(HibernateUtil.class);
 
-
+public HibernateUtil() {
+	
+}
 	
 	
 	/**

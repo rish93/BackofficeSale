@@ -52,8 +52,12 @@ public class Login  extends WebPage{
 					pageParameters.add("username", usernameValue);
 					pageParameters.add("password", pswd);
 					
-					setResponsePage(HelloWorld.class,pageParameters);
+					setResponsePage(KetliHome.class,pageParameters);
 
+				}
+				else
+				{
+					setResponsePage(Login.class,pageParameters);
 				}
 				
 			}
